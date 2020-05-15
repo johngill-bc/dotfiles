@@ -1,7 +1,7 @@
 [user]
-    name = John Gill
-    email = john.gill@braincorp.com
-    username = johngill-bc
+    name =
+    email =
+    username =
 
 [push]
         default = matching
