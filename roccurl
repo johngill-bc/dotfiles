@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$#" -lt 2 ]
+then
+  echo "Usage: roccurl alias endpoint [curl options...]"
+  exit 1
+fi
+roc env login $1 -v #verify token is valid (without forcing login)
+
+if [[ $2 == /* ]]; then 
+ curl -s -H "Authorization: Bearer $(roc env token $1)" $(roc env url $1)$2 ${@:3}
+else 
+ curl -s -H "Authorization: Bearer $(roc env token $1)" $(roc env url $1)/$2 ${@:3}
+fi

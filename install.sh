@@ -28,3 +28,5 @@ read -p "Github username: " gh_user
 git config --global user.name "$gh_name"
 git config --global user.email "$gh_email"
 git config --global user.username "$gh_user"
+
+cp roccurl /usr/local/bin/.
