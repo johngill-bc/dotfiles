@@ -4,7 +4,7 @@
     username =
 
 [push]
-        default = matching
+    default = matching
 
 [core]
     editor = vim
@@ -31,6 +31,10 @@
 
 [diff]
     tool = vimdiff
+
+[merge]
+	tool = vimdiff
+
 [alias]
 	a = add --all
 	ai = add -i
@@ -80,9 +84,9 @@
 	dct = difftool --cached
 	#############
     f = fetch
-    fa = fetch -a
+    fa = fetch --all
+    fap = fetch --all -p
     fo = fetch origin
-	fu = fetch upstream
 	#############
 	fp = format-patch
 	#############
@@ -137,13 +141,9 @@
 	plom = pull origin master
 	ploc = !git pull origin $(git bc)
 	pbom = pull --rebase origin master
+	pboma = pull --rebase --autostash origin master
 	pboc = !git pull --rebase origin $(git bc)
-	#############
-	plu = pull upstream
-	plum = pull upstream master
-	pluc = !git pull upstream $(git bc)
-	pbum = pull --rebase upstream master
-	pbuc = !git pull --rebase upstream $(git bc)
+	pboca = !git pull --rebase --autostash origin $(git bc)
 	#############
 	rb = rebase
 	rba = rebase --abort
@@ -169,13 +169,9 @@
 	rp = remote prune
 	rs = remote show
 	rao = remote add origin
-	rau = remote add upstream
 	rro = remote remove origin
-	rru = remote remove upstream
 	rso = remote show origin
-	rsu = remote show upstream
 	rpo = remote prune origin
-	rpu = remote prune upstream
 	#############
 	rmf = rm -f
 	rmrf = rm -r -f
@@ -233,10 +229,13 @@
 	subrepo = !sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -
     human = name-rev --name-only --refs=refs/heads/*
     #############
-    subsync = !git submodule sync && git submodule update --init --recursive
+    subsync = !git submodule sync && git submodule update --init --recursive && git submodule foreach git lfs pull
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
     required = true
+
+[submodule]
+    recurse = true
