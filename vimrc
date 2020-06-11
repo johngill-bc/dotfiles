@@ -30,9 +30,9 @@ colorscheme solarized
 
 autocmd FileType make setlocal noexpandtab
 autocmd FileType release_names setlocal noexpandtab
-autocmd BufRead,BufNewFile *.bteq set filetype=sql
+autocmd BufRead,BufNewFile *.bteq setf sql
 autocmd BufRead,BufNewFile Jenkinsfile setf groovy
-autocmd BufNewFile,BufRead *.service* set ft=systemd
+autocmd BufNewFile,BufRead *.service* setf systemd
 
 " Functions
 let mapleader='\'
