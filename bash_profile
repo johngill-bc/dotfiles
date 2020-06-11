@@ -24,6 +24,10 @@ shopt -s histappend
 # Sets up the agent only once and saves off the environment for future bash
 # sesssions. Also creates functions to be able to restart if needed.
 SSH_ENV="$HOME/.ssh/environment"
+# If you want to use 'ssh-add -c' to prompt for restricted agent keys,
+# uncomment this line and make sure that ssh-askpass is installed.
+# You may need to update with correct path based on OS if type is failing
+#export SSH_ASKPASS=$(type -p ssh-askpass)
 
 function start_agent {
     echo "Initialising new SSH agent..."
