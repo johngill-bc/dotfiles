@@ -5,7 +5,7 @@ mkdir -p ~/.vim/colors/
 mkdir -p ~/.bash
 
 cp ${GITDIR}/gitconfig ~/.gitconfig
-cp ${GITDIR}/tmux.conf ~/tmux.conf
+cp ${GITDIR}/tmux.conf ~/.tmux.conf
 cp ${GITDIR}/vimrc ~/.vimrc
 cp ${GITDIR}/solarized.vim ~/.vim/colors/solarized.vim
 cp ${GITDIR}/bash_profile ~/.my_bash_profile # avoid clobbering any other bash settings
