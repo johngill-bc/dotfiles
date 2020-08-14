@@ -29,4 +29,4 @@ git config --global user.name "$gh_name"
 git config --global user.email "$gh_email"
 git config --global user.username "$gh_user"
 
-cp ${GITDIR}/roccurl /usr/local/bin/.
+cp ${GITDIR}/roccurl /usr/local/bin/roccurl
