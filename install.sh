@@ -30,3 +30,4 @@ git config --global user.email "$gh_email"
 git config --global user.username "$gh_user"
 
 cp ${GITDIR}/roccurl /usr/local/bin/roccurl
+cp ${GITDIR}/tmux-start.sh /usr/local/bin/tmux-start.sh
